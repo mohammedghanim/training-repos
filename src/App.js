@@ -16,9 +16,8 @@ class App extends Component {
                   repos: res.data
         
               })
-          
           })
-   console.log(this.state.repos);
+  
   }
   render(){
   return (

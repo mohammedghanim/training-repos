@@ -8,7 +8,7 @@ class repos extends Component{
     }
 
     componentDidMount(){
-            console.log(this.props.repos);
+           
     //     axios.get('https://api.github.com/users/mohammedghanim/repos').then(res => {
           this.setState({
         
@@ -17,8 +17,9 @@ class repos extends Component{
          
     }
     render(){
-       
-        const {repos} = this.state;
+        
+        const {repos} = this.props;
+    
         const repolist = repos.length ? (
             repos.map(repo => {
                 return(
