@@ -1,4 +1,5 @@
 import React , {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 
 class repos extends Component{
@@ -19,16 +20,21 @@ class repos extends Component{
     render(){
         
         const {repos} = this.props;
-    
         const repolist = repos.length ? (
             repos.map(repo => {
                 return(
+             
                     <div className="post card" key={repo.id}>
                         <div className="card-content">
+                     
+                        <Link to={'/' + repo.owner.login + '/' + repo.name} onClick={() => this.props.enterIssues('repos/' + repo.owner.login + '/' + repo.name + '/issues')}>
                             <span className="card-title">{repo.name}</span>
+                            </Link>
                         </div>
                     </div>
+                   
                 )
+                
             })
         ) : (<div className="center">no repositories for this member</div>)
         return(

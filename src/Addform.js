@@ -25,6 +25,7 @@ render(){
     return(
         <div className="container">
             <form className="center" onSubmit={this.handleSubmit}>
+            <h1 className="center">Repositories</h1>
       <input type="text" className="center" id="usrname" onChange={this.handleChange}/>
       <button onClick={() => this.props.fireSearch(this.state.username)}><img src={submiticon} alt='submit icon'/>Submit</button>
     </form>
