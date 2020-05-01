@@ -3,7 +3,7 @@ import Repos from './Repos';
 import Addform from './Addform';
 import axios from 'axios';
 import Navbar from './Navbar';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Issues from './Issues';
 
 class App extends Component {
@@ -38,11 +38,11 @@ class App extends Component {
     <BrowserRouter>
     <div className="App">
     <Navbar />
-    <Route exact path='/Addform' component={Addform} />
-    <Route exact path='/:username' component={Repos} fireSearch={this.fireSearch} />
     <Addform fireSearch={this.fireSearch} />
+    <Route exact path='/:username' component={() => <Repos repos={this.state.repos} enterIssues={this.enterIssues}/>} />
     <Repos repos={this.state.repos} enterIssues={this.enterIssues} />
-    <Route exact path='/:username/:repository' component={() => <Issues Issues={this.state.issues} />}  />
+    <Route exact path='/:username/:repository' component={() => <Issues issues={this.state.issues} />}  />
+   
     </div>
     </BrowserRouter>
   );
